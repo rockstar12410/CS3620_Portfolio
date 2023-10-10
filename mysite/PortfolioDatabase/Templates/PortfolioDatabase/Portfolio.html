@@ -1,3 +1,4 @@
+{% extends 'PortfolioDatabase/base.html'%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,12 +7,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
+
 </head>
 <body>
+{% block body %}
+<h2>Portfolio</h2>
 {% for port in port_list%}
-    <ul>
-        <a href="{% url 'PortDetail' port.id %}">{{port.port_name}}</a>
-    </ul>
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card" src="{{ port.port_imag }}" width="250" height="150"/>
+        </div>
+        <div class="col-md-4">
+            <h3>{{ port.port_name}}</h3>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'PortDetail' port.id %}" class="btn btn-success">Details</a>
+        </div>
+    </div>
 {% endfor %}
+
+{% endblock %}}
 </body>
 </html>

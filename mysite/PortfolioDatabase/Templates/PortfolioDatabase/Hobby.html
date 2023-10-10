@@ -1,3 +1,4 @@
+{% extends 'PortfolioDatabase/base.html'%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,13 +7,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
 <body>
+{% block body %}
+<h2>Hobby</h2>
 {% for hobby in hobbie_list%}
-    <ul>
-        <a href="{% url 'HobDetail' hobby.id %}">{{hobby.hob_name}}</a>
-    </ul>
-{% endfor %}
 
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card"  src="{{ hobby.hob_imag }}" width="250" height="150"/>
+        </div>
+        <div class="col-md-4">
+            <h3>{{ hobby.hob_name}}</h3>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'HobDetail' hobby.id %}" class="btn btn-success">Details</a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
 </body>
 </html>

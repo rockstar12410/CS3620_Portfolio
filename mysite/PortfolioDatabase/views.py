@@ -40,4 +40,6 @@ def PortDetail(request, id):
     return render(request,'PortfolioDatabase/PortDetail.html', context)
 
 def Contact(request):
-    return HttpResponse('austinallred5@mail.weber.edu')
+    template = loader.get_template('PortfolioDatabase/Contact.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
