@@ -9,16 +9,26 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Portfolio Database</a>
+    <a href="{% url 'PortfolioDatabase:Home' %}" class="navbar-brand">Portfolio Database</a>
     <div class="navbar">
         <a href="/hobbies" class="nav-item">Hobby</a>
         <p> space </p>
         <a href="/portfolio" class="nav-item">Portfolio</a>
         <p> space </p>
         <a href="/contact" class="nav-item">Contact</a>
+        <p> space </p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="nav-item nav-link">Logoout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+        {% endif %}
     </div>
 </nav>
-
+{% if messages %}
+    {% for messages in messages %}
+        <div class="alert alert-{{ message.tags }}"></div>
+    {% endfor %}
+             {% endif %}
 {% block body %}
 {% endblock %}
 </body>

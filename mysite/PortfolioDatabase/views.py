@@ -62,7 +62,7 @@ def Create_port(request):
 
     if form.is_valid():
         form.save()
-        return redirect("{% url 'Portfolio' %}")
+        return redirect('PortfolioDatabase:Portfolio')
 
     return render(request, 'PortfolioDatabase/Create_port.html', {'form':form})
 
@@ -72,7 +72,7 @@ def Update_port(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect("{% url 'Portfolio' %}")
+        return redirect('PortfolioDatabase:Portfolio')
 
     return render(request, 'PortfolioDatabase/Create_port.html', {'form':form, 'port':port})
 
@@ -81,6 +81,6 @@ def Delete_port(request, id):
 
     if request.method == 'POST':
         port.delete()
-        return redirect("{% url 'Portfolio' %}")
+        return redirect('PortfolioDatabase:Portfolio')
 
     return render(request, 'PortfolioDatabase/Port-delete.html', {'port': port})

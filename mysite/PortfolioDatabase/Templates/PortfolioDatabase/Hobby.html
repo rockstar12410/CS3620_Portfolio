@@ -20,7 +20,7 @@
             <h3>{{ hobby.hob_name}}</h3>
         </div>
         <div class="col-md-2">
-            <a href="{% url 'HobDetail' hobby.id %}" class="btn btn-success">Details</a>
+            <a href="{% url 'PortfolioDatabase:HobDetail' hobby.id %}" class="btn btn-success">Details</a>
         </div>
     </div>
 {% endfor %}
