@@ -18,9 +18,9 @@
         <a href="/contact" class="nav-item">Contact</a>
         <p> space </p>
         {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}" class="nav-item nav-link">Logoout</a>
+            <a href="{% url 'logout' %}" class="nav-item">Logoout</a>
         {% else %}
-            <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+            <a href="{% url 'login' %}" class="nav-item">Login</a>
         {% endif %}
     </div>
 </nav>
